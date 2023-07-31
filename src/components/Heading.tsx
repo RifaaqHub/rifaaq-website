@@ -1,4 +1,3 @@
-'use client'
 import tw, { TwStyle, styled } from 'twin.macro'
 
 type HeadingVariant = 'h1' | 'h2' | 'h3'

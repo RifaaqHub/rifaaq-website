@@ -1,5 +1,3 @@
-'use client'
-
 import { JoinWaitlist } from './Button'
 import Logo from './Logo'
 import Maxwidth from './Maxwidth'

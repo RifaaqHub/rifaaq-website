@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import lightLogo from 'public/logo-light-bg.png'
 import darkLogo from 'public/logo-dark-bg.png'
@@ -18,7 +16,7 @@ const Logo = ({ $lightBg = true }: { $lightBg?: boolean }) => {
 }
 
 export const Icon = styled.div(() => [
-  tw`bg-[url(/fav.png)] w-[6.5rem] h-[6.5rem] bg-cover bg-no-repeat 2xl:(w-[12.375rem] h-[12.375rem])`,
+  tw`bg-[url(/fav.png)] w-[6.5rem] h-[6.5rem] bg-cover bg-no-repeat lg:(w-[12rem] h-[12rem])`,
 ])
 
 export default Logo

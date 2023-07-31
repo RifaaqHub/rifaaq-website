@@ -1,5 +1,3 @@
-'use client'
-
 import { Button, Heading, Icon, Maxwidth, Paragraph } from '@/components'
 import { useForm } from 'react-hook-form'
 import tw from 'twin.macro'
