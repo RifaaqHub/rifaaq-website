@@ -1,10 +1,21 @@
 import type { Metadata } from 'next'
 import GlobalStyles from '@/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
+import '@/styles/globals.css'
+
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto',
+})
 
 export const metadata: Metadata = {
-  title: 'Twin example',
-  description: '',
+  title: 'Rifaaq Home',
+  description:
+    'At Rifaaq, we are dedicated to helping every member of the Muslim community realize their full potential. Join us and embark on a path of spiritual growth and personal development like never before.',
 }
 
 export default function RootLayout({
@@ -13,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto.variable}`}>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
