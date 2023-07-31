@@ -7,6 +7,8 @@ export default {
       colors: {
         electric: '#db00ff',
         ribbon: '#0047ff',
+        primary: '#1A2A55',
+        secondary: '#FFCF3F',
       },
     },
   },
