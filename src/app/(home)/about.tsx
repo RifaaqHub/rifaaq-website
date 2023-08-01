@@ -20,7 +20,7 @@ const About = () => {
                 isMission && tw`lg:(flex-row-reverse)`,
               ]}
             >
-              <div tw="flex-1">
+              <div tw="flex-1 max-w-[700px]">
                 <Heading
                   tw="pb-4 text-primary"
                   as={'h2'}

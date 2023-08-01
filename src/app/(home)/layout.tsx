@@ -1,7 +1,4 @@
-'use client'
-
-import Header from '@/components/Header'
-import Footer from '@/components/footer'
+import HomeLayoutProvider from '@/components/HomeLayoutWrapper'
 
 export default function HomeLayout({
   children,
@@ -11,9 +8,7 @@ export default function HomeLayout({
   return (
     <>
       <main>
-        <Header />
-        {children}
-        <Footer />
+        <HomeLayoutProvider>{children}</HomeLayoutProvider>
       </main>
     </>
   )
