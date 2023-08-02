@@ -1,26 +1,27 @@
 import { Button, Heading, Icon, Maxwidth, Paragraph } from '@/components'
 import { useForm } from 'react-hook-form'
 import tw from 'twin.macro'
-
-type FormInput = {
-  email: string
-}
+import { waitListInput } from '../../../types/waitlistInput'
+import useJoinWaitList from './useJoinWaitList'
 
 const WaitListForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInput>({
+  } = useForm<waitListInput>({
     defaultValues: {
       email: '',
+      nickname: 'reed',
     },
   })
 
+  const { mutate: join } = useJoinWaitList()
+
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-  const subscribe = (data: FormInput) => {
-    console.log(data)
+  const subscribe = (data: waitListInput) => {
+    join(data)
   }
 
   return (
