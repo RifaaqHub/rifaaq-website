@@ -3,24 +3,42 @@
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-hot-toast'
 import { joinWaitlist } from '../service'
+import { useRef } from 'react'
 
 const useJoinWaitList = () => {
-  let toastId: any
+  const toastId = useRef<any>()
 
   let dismiss = () => {
-    if (toastId) toast.dismiss(toastId)
+    if (toastId.current) toast.dismiss(toastId.current)
+  }
+
+  const onSettled = () => {
+    dismiss()
+  }
+
+  const onMutate = () => {
+    toastId.current = toast.loading('Joining waitlist...')
+  }
+
+  const onSuccess = (data: any) => {
+    toast.success(
+      data?.message ?? 'Marhaban! Please check your mail for confirmation',
+    )
+  }
+  const onError = (error: any) => {
+    toast.error(
+      error?.response?.data.errors?.[0]?.msg ??
+        'error joining waitlist, please try again',
+    )
   }
 
   return useMutation({
     mutationKey: ['join'],
-    onMutate: () => {
-      toastId = toast.loading('Joining waitlist...')
-    },
+    onMutate,
     mutationFn: joinWaitlist,
-    onSettled: () => dismiss,
-    onSuccess: () =>
-      toast.success('Marhaban! Please check your mail for confirmation'),
-    onError: () => toast.error('error joining waitlist, please try again'),
+    onSettled,
+    onSuccess,
+    onError,
   })
 }
 
