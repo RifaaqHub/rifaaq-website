@@ -1,26 +1,27 @@
 import { Button, Heading, Icon, Maxwidth, Paragraph } from '@/components'
 import { useForm } from 'react-hook-form'
 import tw from 'twin.macro'
-
-type FormInput = {
-  email: string
-}
+import { waitListInput } from '../../../types/waitlistInput'
+import useJoinWaitList from './useJoinWaitList'
 
 const WaitListForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInput>({
+  } = useForm<waitListInput>({
     defaultValues: {
       email: '',
+      nickname: '',
     },
   })
 
+  const { mutate: join } = useJoinWaitList()
+
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-  const subscribe = (data: FormInput) => {
-    console.log(data)
+  const subscribe = (data: waitListInput) => {
+    join(data)
   }
 
   return (
@@ -48,20 +49,21 @@ const WaitListForm = () => {
           </Paragraph>
         </div>
 
-        <div
-          tw="bg-white rounded-[1rem] flex items-center justify-stretch gap-4 p-[0.65rem] w-full max-w-[35rem] mx-auto lg:(p-[0.88rem])"
-          css={[errors?.email && tw`border border-[red]`]}
-        >
-          <input
+        <div tw="flex flex-col items-center justify-stretch gap-4 w-full max-w-[35rem] mx-auto">
+          <Input
             type="text"
+            placeholder="Name/Qunya"
+            {...register('nickname', { required: true, minLength: 3 })}
+            css={[errors?.email && tw`border border-[red]`]}
+          />
+          <Input
+            type="text"
+            placeholder="Email"
             {...register('email', { required: true, pattern: emailPattern })}
-            tw="w-full p-2 text-black font-semibold"
+            css={[errors?.email && tw`border border-[red]`]}
           />
 
-          <Button
-            $variant="primary"
-            tw="text-[0.875rem] whitespace-nowrap px-0 min-w-[5.8rem] md:(min-w-[8.375rem])"
-          >
+          <Button tw="text-lg whitespace-nowrap px-0 w-full md:(max-w-[17.2rem]) ml-auto">
             Join Now
           </Button>
         </div>
@@ -69,5 +71,7 @@ const WaitListForm = () => {
     </Maxwidth>
   )
 }
+
+const Input = tw.input`bg-white w-full rounded-[1rem] p-[0.88rem] text-black font-semibold lg:(p-[1.5rem] text-xl)`
 
 export default WaitListForm

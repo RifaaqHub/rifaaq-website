@@ -1,4 +1,5 @@
 import { Logo, Maxwidth, Paragraph } from '@/components'
+import { routes } from '@/lib/routes'
 import Link from 'next/link'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 
@@ -29,12 +30,12 @@ const socials = [
   {
     title: 'twitter',
     icon: FaTwitter,
-    link: '',
+    link: routes.twitter.path,
   },
   {
     title: 'facebook',
     icon: FaFacebook,
-    link: '',
+    link: routes.facebook.path,
   },
   {
     title: 'instagram',
