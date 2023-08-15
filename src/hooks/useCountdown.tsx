@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react'
 import { differenceInSeconds, addSeconds, startOfTomorrow } from 'date-fns'
 
 interface CountdownResult {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
+  days: number | ''
+  hours: number | ''
+  minutes: number | ''
+  seconds: number | ''
 }
 
 const useCountdown = (deadline?: Date): CountdownResult => {
@@ -15,10 +15,10 @@ const useCountdown = (deadline?: Date): CountdownResult => {
   const targetDate = deadline || defaultDeadline
 
   const [countdown, setCountdown] = useState<CountdownResult>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: '',
+    hours: '',
+    minutes: '',
+    seconds: '',
   })
 
   useEffect(() => {
