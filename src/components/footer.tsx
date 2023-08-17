@@ -45,7 +45,7 @@ const socials = [
   {
     title: 'linkedin',
     icon: FaLinkedinIn,
-    link: 'https://www.linkedin.com/company/rifaaq',
+    link: routes.linkedIn.path,
   },
 ]
 

@@ -58,6 +58,7 @@ const AccoRifaaq = () => {
             <Button
               tw="max-w-[17.185rem] text-center"
               as={Link}
+              target="_blank"
               href={'https://acco.rifaaq.com'}
             >
               Learn more

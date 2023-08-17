@@ -30,14 +30,32 @@ export const metadata: Metadata = {
   title: 'Rifaaq Home',
   description:
     'We aspire to be the ultimate partner in personal and professional growth, driving positive change and creating a brighter future for all.',
+  metadataBase: new URL('https://rifaaq.com'),
   keywords: [
     'productivity',
     'growth',
     'partnership',
     'personal development',
     'business development',
+    'support',
   ],
-  category: 'technology',
+  category: 'technology, personal development',
+  openGraph: {
+    title: 'Rifaaq',
+    description:
+      'the ultimate partner in personal and professional growth, driving positive change and creating a brighter future for all.',
+    url: 'https://rifaaq.com',
+    siteName: 'Rifaaq',
+    type: 'website',
+    images: [
+      {
+        url: '/fav.png',
+        width: 768,
+        height: 768,
+        alt: 'rifaaq-icon',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({

@@ -32,7 +32,7 @@ export const DiscoverOfferingsButton = ({
   shadow,
   ...props
 }: { shadow?: boolean } & ComponentPropsWithoutRef<'a'>) => (
-  <Button as={'a'} href="#offerings" $shadow={shadow} {...props}>
+  <Button as={'a'} href="/#offerings" $shadow={shadow} {...props}>
     Discover Our Latest Offerings
   </Button>
 )

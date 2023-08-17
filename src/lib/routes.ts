@@ -1,6 +1,6 @@
 export const routes = {
   facebook: {
-    path: 'facebook.com/rifaaqhq',
+    path: 'https://facebook.com/rifaaqhq',
   },
   twitter: {
     path: 'https://twitter.com/rifaaqhq',
