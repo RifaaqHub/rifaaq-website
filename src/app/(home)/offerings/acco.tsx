@@ -11,9 +11,13 @@ const AccoRifaaq = () => {
       </Heading>
 
       <div tw="flex flex-col gap-4 lg:(flex-row-reverse justify-between items-center)">
-        <Image src={acco} alt="acco-rifaaq" tw="mx-auto h-full" />
+        <Image
+          src={acco}
+          alt="acco-rifaaq"
+          tw="mx-auto h-full transition hocus:scale-105"
+        />
 
-        <div tw="text-white">
+        <div tw="text-white lg:(min-w-[50%])">
           <Paragraph tw="pb-8 lg:(pb-10 max-w-[34.25rem])">
             Acco-rifaaq is an innovative Islamic productivity app that merges
             modern technology with Islamic principles, offering a holistic

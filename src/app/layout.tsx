@@ -3,7 +3,8 @@ import GlobalStyles from '@/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
 import '@/styles/globals.css'
 
-import { Montserrat, Roboto } from 'next/font/google'
+import { Roboto } from 'next/font/google'
+import localFont from 'next/font/local'
 import AppProviders from './providers'
 
 const roboto = Roboto({
@@ -13,11 +14,16 @@ const roboto = Roboto({
   variable: '--font-roboto',
 })
 
-const calm = Montserrat({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
+const calm = localFont({
+  src: [
+    {
+      path: '../styles/KeepCalm-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
   variable: '--font-calm',
+  fallback: ['system-ui', 'sans-serif', 'arial'],
 })
 
 export const metadata: Metadata = {

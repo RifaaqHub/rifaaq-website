@@ -13,7 +13,12 @@ const Footer = () => {
           {socials.map(social => {
             const Icon = social.icon
             return (
-              <Link href={social.link} key={social.title} title={social.title}>
+              <Link
+                href={social.link}
+                target="_blank"
+                key={social.title}
+                title={social.title}
+              >
                 <Icon size={25} />
               </Link>
             )

@@ -22,13 +22,18 @@ const About = () => {
                 isMission && tw`lg:(flex-row-reverse)`,
               ]}
             >
-              <div tw="flex-1 max-w-[700px]">
-                {isDistinction ? <Image alt="" src={quote} tw="mb-10" /> : null}
+              <div tw="flex-1 max-w-[700px] lg:(min-w-[23rem])">
+                {isDistinction ? (
+                  <Image alt="" src={quote} tw="mb-10 hocus:scale-105" />
+                ) : null}
                 <Heading
                   tw="pb-4 text-primary"
                   as={'h2'}
                   $variant={isDistinction ? 'h3' : 'h2'}
-                  css={[isDistinction && tw`text-[#212121] pb-7 lg:(pb-10)`]}
+                  css={[
+                    isDistinction &&
+                      tw`font-roboto font-bold text-[#212121] pb-7 lg:(pb-10)`,
+                  ]}
                 >
                   {section.title}
                 </Heading>
@@ -36,7 +41,7 @@ const About = () => {
               </div>
 
               <div
-                tw="relative h-[18.5rem] bg-contain bg-no-repeat w-full max-w-[21rem] mx-auto lg:(max-w-[28.5rem] h-[27.5rem])"
+                tw="relative h-[18.5rem] bg-contain bg-no-repeat w-full max-w-[21rem] mx-auto transition hocus:scale-105 lg:(max-w-[28.5rem] h-[27.5rem])"
                 css={{ backgroundImage: `url(${section.img})` }}
               />
             </Maxwidth>

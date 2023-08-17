@@ -14,5 +14,5 @@ const headingVariants: Record<HeadingVariant, TwStyle> = {
 
 export const Heading = styled.h1<HeadingProps>(({ $variant = 'h1' }) => [
   headingVariants[$variant],
-  tw`font-calm font-semibold`,
+  tw`font-calm font-medium`,
 ])

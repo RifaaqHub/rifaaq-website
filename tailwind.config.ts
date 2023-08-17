@@ -12,6 +12,7 @@ export default {
       },
       fontFamily: {
         calm: ['var(--font-calm)'],
+        roboto: ['var(--font-roboto)'],
       },
     },
   },
