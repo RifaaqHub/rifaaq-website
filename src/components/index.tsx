@@ -1,4 +1,4 @@
-export { default as Button, JoinWaitlist } from './Button'
+export { default as Button, DiscoverOfferingsButton } from './Button'
 export { default as Logo, Icon } from './Logo'
 export { default as Maxwidth } from './Maxwidth'
 export { Heading } from './Heading'

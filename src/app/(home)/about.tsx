@@ -1,4 +1,6 @@
 import { Heading, Maxwidth, Paragraph } from '@/components'
+import Image from 'next/image'
+import quote from 'public/quote.svg'
 import tw from 'twin.macro'
 
 const About = () => {
@@ -21,6 +23,7 @@ const About = () => {
               ]}
             >
               <div tw="flex-1 max-w-[700px]">
+                {isDistinction ? <Image alt="" src={quote} tw="mb-10" /> : null}
                 <Heading
                   tw="pb-4 text-primary"
                   as={'h2'}
@@ -29,7 +32,7 @@ const About = () => {
                 >
                   {section.title}
                 </Heading>
-                <Paragraph>{section.text}</Paragraph>
+                {section.text ? <Paragraph>{section.text}</Paragraph> : null}
               </div>
 
               <div
@@ -47,18 +50,18 @@ const About = () => {
 const about = {
   mission: {
     title: 'Our Vision',
-    text: 'Our vision is to become a leading force in the Muslim world, making far-reaching positive impacts in the lives of African Muslims and the world at large.',
+    text: 'To be a leading and trusted brand that enriches lives and businesses, inspiring prosperity, and fostering lasting connections. Rifaaq envisions a world where simplicity and ease are the cornerstones of progress, where trust is the foundation of every relationship, and where unwavering support fuels the success of individuals and enterprises alike.',
     img: '/mission.png',
   },
   vision: {
     title: 'Our Mision',
-    text: 'Our mission is to assist every member of the Muslim community in becoming the best version of themselves spiritually and in all aspects of life.',
+    text: 'At Rifaaq, we strive to simplify and elevate lives by providing accessible and reliable solutions. Through our diverse offerings, we empower individuals and businesses to grow, fostering competence and becoming dependable companions for their needs. Our commitment to simplicity, ease, trust, and unwavering support drives us to create a positive impact, nurturing a community built on shared values and mutual growth.',
     img: '/vision.png',
   },
   distinction: {
     title:
-      '“What sets us apart is our ability to present individuals with simple continuous steps leading to their ultimate better version”',
-    text: 'We are striving to give every Muslim, whether learned or just finding their feet, a reliable associate that makes the journey so easy through our platform. We also leverage other available resources from the wider Muslim community to provide our users with the best possible experience.',
+      'In the tapestry of progress, simplicity and support weave the brightest threads.',
+    text: '',
     img: '/distinction.png',
   },
 }

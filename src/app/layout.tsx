@@ -3,7 +3,7 @@ import GlobalStyles from '@/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
 import '@/styles/globals.css'
 
-import { Roboto } from 'next/font/google'
+import { Montserrat, Roboto } from 'next/font/google'
 import AppProviders from './providers'
 
 const roboto = Roboto({
@@ -11,6 +11,13 @@ const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-roboto',
+})
+
+const calm = Montserrat({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-calm',
 })
 
 export const metadata: Metadata = {
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${roboto.variable}`}>
+    <html lang="en" className={`${roboto.variable} ${calm.variable}`}>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />

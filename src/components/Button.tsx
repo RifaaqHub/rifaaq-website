@@ -28,12 +28,12 @@ const Button = styled.button<ButtonProps>(({ $variant, $isSmall, $shadow }) => [
   // `,
 ])
 
-export const JoinWaitlist = ({
+export const DiscoverOfferingsButton = ({
   shadow,
   ...props
 }: { shadow?: boolean } & ComponentPropsWithoutRef<'a'>) => (
-  <Button as={'a'} href="#join-waitlist" $shadow={shadow} {...props}>
-    Join Our Waitlist
+  <Button as={'a'} href="#offerings" $shadow={shadow} {...props}>
+    Discover Our Latest Offerings
   </Button>
 )
 

@@ -10,6 +10,9 @@ export default {
         primary: '#1A2A55',
         secondary: '#FFCF3F',
       },
+      fontFamily: {
+        calm: ['var(--font-calm)'],
+      },
     },
   },
   plugins: [],

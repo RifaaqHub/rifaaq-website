@@ -1,7 +1,7 @@
 import { Logo, Maxwidth, Paragraph } from '@/components'
 import { routes } from '@/lib/routes'
 import Link from 'next/link'
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -38,9 +38,9 @@ const socials = [
     link: routes.facebook.path,
   },
   {
-    title: 'instagram',
-    icon: FaInstagram,
-    link: '',
+    title: 'linkedin',
+    icon: FaLinkedinIn,
+    link: 'https://www.linkedin.com/company/rifaaq',
   },
 ]
 

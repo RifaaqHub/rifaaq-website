@@ -3,13 +3,15 @@
 import React from 'react'
 import Hero from './hero'
 import About from './about'
-import WaitListForm from './waitListForm'
+import Offerings from './offerings'
+import NewsLetterForm from './newsletterForm'
 
 const Home = () => (
   <>
     <Hero />
     <About />
-    <WaitListForm />
+    <Offerings />
+    <NewsLetterForm />
   </>
 )
 
