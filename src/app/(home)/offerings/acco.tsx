@@ -58,7 +58,7 @@ const AccoRifaaq = () => {
             <Button
               tw="max-w-[17.185rem] text-center"
               as={Link}
-              href={'acco.rifaaq.com'}
+              href={'https://acco.rifaaq.com'}
             >
               Learn more
             </Button>
