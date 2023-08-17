@@ -29,7 +29,15 @@ const calm = localFont({
 export const metadata: Metadata = {
   title: 'Rifaaq Home',
   description:
-    'At Rifaaq, we are dedicated to helping every member of the Muslim community realize their full potential. Join us and embark on a path of spiritual growth and personal development like never before.',
+    'We aspire to be the ultimate partner in personal and professional growth, driving positive change and creating a brighter future for all.',
+  keywords: [
+    'productivity',
+    'growth',
+    'partnership',
+    'personal development',
+    'business development',
+  ],
+  category: 'technology',
 }
 
 export default function RootLayout({
