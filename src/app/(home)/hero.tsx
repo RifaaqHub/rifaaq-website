@@ -17,7 +17,7 @@ const Hero = () => {
           and creating a brighter future for all.
         </Paragraph>
 
-        <DiscoverOfferingsButton shadow />
+        <DiscoverOfferingsButton shadow tw="text-lg" />
       </Maxwidth>
     </section>
   )

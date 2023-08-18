@@ -14,7 +14,11 @@ const About = () => {
         return (
           <section
             key={section.title}
-            css={[tw`bg-white`, isMission && tw`bg-[#EFF1F9]`]}
+            css={[
+              tw`bg-white`,
+              isMission && tw`bg-[#EFF1F9]`,
+              isDistinction && tw`bg-[url(/quote-bg.svg)] bg-cover`,
+            ]}
           >
             <Maxwidth
               css={[
@@ -32,7 +36,7 @@ const About = () => {
                   $variant={isDistinction ? 'h3' : 'h2'}
                   css={[
                     isDistinction &&
-                      tw`font-roboto font-bold text-[#212121] pb-7 lg:(pb-10)`,
+                      tw`font-roboto font-bold text-[#494C55] pb-7 lg:(pb-10)`,
                   ]}
                 >
                   {section.title}
@@ -59,7 +63,7 @@ const about = {
     img: '/mission.png',
   },
   vision: {
-    title: 'Our Mision',
+    title: 'Our Mission',
     text: 'At Rifaaq, we strive to simplify and elevate lives by providing accessible and reliable solutions. Through our diverse offerings, we empower individuals and businesses to grow, fostering competence and becoming dependable companions for their needs. Our commitment to simplicity, ease, trust, and unwavering support drives us to create a positive impact, nurturing a community built on shared values and mutual growth.',
     img: '/vision.png',
   },

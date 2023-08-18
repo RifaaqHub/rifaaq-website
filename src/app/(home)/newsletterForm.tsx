@@ -78,6 +78,6 @@ const NewsLetterForm = () => {
   )
 }
 
-const Input = tw.input`bg-white w-full rounded-[1rem] border border-[#686C76] p-5 text-primary text-lg font-semibold lg:(p-6 text-xl)`
+const Input = tw.input`bg-white w-full rounded-[1rem] border border-[#686C76] p-5 text-primary text-lg lg:(p-6 text-xl)`
 
 export default NewsLetterForm
