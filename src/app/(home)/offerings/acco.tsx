@@ -14,7 +14,7 @@ const AccoRifaaq = () => {
         <Image
           src={acco}
           alt="acco-rifaaq"
-          tw="mx-auto h-full transition hocus:scale-105"
+          tw="mx-auto h-full transition hocus:scale-105 lg:(w-[50%] max-w-[447px])"
         />
 
         <div tw="text-[#E2E6ED] lg:(min-w-[50%])">
@@ -40,7 +40,7 @@ const AccoRifaaq = () => {
             <ol tw="pb-3">
               <Paragraph tw="text-secondary">Currently available</Paragraph>
               {available.map((feature, index) => (
-                <li>
+                <li key={index}>
                   {index + 1}. {feature}
                 </li>
               ))}
@@ -49,7 +49,7 @@ const AccoRifaaq = () => {
             <ol tw="pb-10 lg:(pb-12)">
               <Paragraph tw="text-[#95B2FF]">Upcoming features</Paragraph>
               {upcoming.map((feature, index) => (
-                <li>
+                <li key={index}>
                   {available.length + 1 + index}. {feature}
                 </li>
               ))}
