@@ -1,11 +1,15 @@
 'use client'
 import { Heading, Logo, Maxwidth } from '@/components'
 import useCountdown from '@/hooks/useCountdown'
+import { zonedTimeToUtc } from 'date-fns-tz'
 
 const RootPage = () => {
-  const { days, hours, minutes, seconds } = useCountdown(
-    new Date('2023-08-20T00:00:00'),
+  const targetTimeZone = 'Africa/Lagos' // WAT is Africa/Lagos time zone
+  const watDateTime = zonedTimeToUtc(
+    new Date(2023, 7, 20, 17, 0, 0),
+    targetTimeZone,
   )
+  const { days, hours, minutes, seconds } = useCountdown(watDateTime)
 
   return (
     <section tw="bg-primary text-white h-screen bg-center bg-cover bg-[url(/hero-bg-mobile.png)] lg:(bg-[url(/hero-bg-desktop.png)])">
