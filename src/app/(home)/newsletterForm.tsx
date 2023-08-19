@@ -1,7 +1,7 @@
 import { Button, Heading, Icon, Maxwidth, Paragraph } from '@/components'
 import { useForm } from 'react-hook-form'
 import tw from 'twin.macro'
-import useJoinWaitList from './useJoinWaitList'
+import useJoinWaitList from './useJoinNewsletter'
 import Image from 'next/image'
 import newsletter from 'public/newsletter.svg'
 

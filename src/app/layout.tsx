@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'business development',
     'support',
   ],
-  category: 'technology, personal development',
+  category: 'technology, personal development, growth, business development',
   openGraph: {
     title: 'Rifaaq',
     description:
