@@ -17,7 +17,7 @@ const useJoinWaitList = () => {
   }
 
   const onMutate = () => {
-    toastId.current = toast.loading('Joining waitlist...')
+    toastId.current = toast.loading('Joining newsletter...')
   }
 
   const onSuccess = (data: any) => {
@@ -26,10 +26,15 @@ const useJoinWaitList = () => {
     )
   }
   const onError = (error: any) => {
-    toast.error(
-      error?.response?.data.errors?.[0]?.msg ??
-        'error joining waitlist, please try again',
-    )
+    if (
+      error?.response?.data?.errors?.[0]?.msg ===
+      'You have already joined the waiting list...'
+    ) {
+      toast.success('You have been added to our newsletter.')
+      return
+    }
+
+    toast.error('error joining newsletter, please try again')
   }
 
   return useMutation({

@@ -10,6 +10,7 @@ const NewsLetterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<waitListInput>({
     defaultValues: {
       email: '',
@@ -22,7 +23,9 @@ const NewsLetterForm = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
   const subscribe = (data: waitListInput) => {
-    join(data)
+    join(data, {
+      onSuccess: () => reset(),
+    })
   }
 
   return (

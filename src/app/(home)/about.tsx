@@ -32,7 +32,7 @@ const About = () => {
                 ) : null}
                 <Heading
                   tw="pb-4 text-primary"
-                  as={'h2'}
+                  as={isDistinction ? 'blockquote' : 'h2'}
                   $variant={isDistinction ? 'h3' : 'h2'}
                   css={[
                     isDistinction &&
@@ -64,7 +64,7 @@ const about = {
   },
   vision: {
     title: 'Our Mission',
-    text: 'At Rifaaq, we strive to simplify and elevate lives by providing accessible and reliable solutions. Through our diverse offerings, we empower individuals and businesses to grow, fostering competence and becoming dependable companions for their needs. Our commitment to simplicity, ease, trust, and unwavering support drives us to create a positive impact, nurturing a community built on shared values and mutual growth.',
+    text: 'At Rifaaq, we strive to simplify and elevate lives by providing accessible and reliable solutions. Through our diverse offerings, we empower individuals and businesses to grow, fostering competence and becoming dependable companions for their growth and development needs. Our commitment to simplicity, ease, trust, and unwavering support drives us to create a positive impact, nurturing a community built on shared values and mutual growth.',
     img: '/vision.png',
   },
   distinction: {
