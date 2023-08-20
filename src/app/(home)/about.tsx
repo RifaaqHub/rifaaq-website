@@ -28,7 +28,11 @@ const About = () => {
             >
               <div tw="flex-1 max-w-[700px] lg:(min-w-[23rem])">
                 {isDistinction ? (
-                  <Image alt="" src={quote} tw="mb-10 hocus:scale-105" />
+                  <Image
+                    alt=""
+                    src={quote}
+                    tw="mb-10 w-[50px] md:(w-[80px]) hocus:scale-105"
+                  />
                 ) : null}
                 <Heading
                   tw="pb-4 text-primary"

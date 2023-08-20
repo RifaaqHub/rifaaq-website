@@ -3,7 +3,7 @@ import { Heading, Logo, Maxwidth } from '@/components'
 import useCountdown from '@/hooks/useCountdown'
 import { zonedTimeToUtc } from 'date-fns-tz'
 
-const RootPage = () => {
+const CountDown = () => {
   const targetTimeZone = 'Africa/Lagos' // WAT is Africa/Lagos time zone
   const watDateTime = zonedTimeToUtc(
     new Date(2023, 7, 20, 17, 0, 0),
@@ -26,4 +26,4 @@ const RootPage = () => {
   )
 }
 
-export default RootPage
+export default CountDown
