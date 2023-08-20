@@ -26,7 +26,7 @@ const Header = () => {
           tw`bg-white sticky top-0 z-[100] border-b-2 border-secondary`,
       ]}
     >
-      <Maxwidth tw="flex items-center bg-white py-2 px-6 justify-between md:(justify-between py-6) lg:(py-6 px-[6.25rem])">
+      <Maxwidth tw="flex items-center bg-white py-2 px-6 justify-between md:(justify-between) lg:(px-[6.25rem])">
         <Logo />
 
         <DiscoverOfferingsButton short tw="py-3 px-4 sm:(hidden)" />
