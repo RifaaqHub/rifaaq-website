@@ -31,7 +31,7 @@ const NewsLetterForm = () => {
   return (
     <Maxwidth
       as="section"
-      id="join-waitlist"
+      id="newsletter"
       tw="py-20 px-6 flex flex-col gap-[4.5rem] md:(px-12) lg:(flex-row justify-between items-center) 2xl:(px-[6.25rem])"
     >
       <Heading
