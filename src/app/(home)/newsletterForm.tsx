@@ -18,7 +18,7 @@ const NewsLetterForm = () => {
     },
   })
 
-  const { mutate: join } = useJoinWaitList()
+  const { mutate: join, isLoading } = useJoinWaitList()
 
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -64,7 +64,7 @@ const NewsLetterForm = () => {
           type="text"
           placeholder="Name"
           {...register('nickname', { required: true, minLength: 3 })}
-          css={[errors?.email && tw`border border-[red]`]}
+          css={[errors?.nickname && tw`border border-[red]`]}
         />
         <Input
           type="text"
@@ -73,7 +73,10 @@ const NewsLetterForm = () => {
           css={[errors?.email && tw`border border-[red]`]}
         />
 
-        <Button tw="text-sm px-16 mt-2 max-w-fit lg:(text-base)">
+        <Button
+          disabled={isLoading}
+          tw="text-sm px-16 mt-2 max-w-fit lg:(text-base)"
+        >
           Subscribe
         </Button>
       </form>
