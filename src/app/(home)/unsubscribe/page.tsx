@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { useResubscribe, useUnsubscribe } from './useSubscription'
 import { useState } from 'react'
 import Link from 'next/link'
+import LoadingSvg from '@/components/LoadingSVG'
 
 const Unsubscribe = () => {
   const params = useSearchParams()
@@ -60,9 +61,16 @@ const Unsubscribe = () => {
         </>
       ) : (
         <>
-          <Heading>
-            {unsubscribing ? 'Unsubscribing...' : 'Unsubscribed'}
-          </Heading>
+          {unsubscribing ? (
+            <>
+              <Heading>Unsubscribing...</Heading>
+              <LoadingSvg />
+            </>
+          ) : (
+            <>
+              <Heading>Unsubscribed</Heading>
+            </>
+          )}
 
           {isSuccess ? (
             <div tw="flex flex-col gap-4">

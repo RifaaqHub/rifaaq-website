@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const baseURL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://rifaaq-backend-c6p3.onrender.com/'
-    : 'https://dev-rifaaq-backend.onrender.com'
+const baseURL = 'https://dev-rifaaq-backend.onrender.com'
+// process.env.NODE_ENV === 'production'
+//   ? 'https://rifaaq-backend-c6p3.onrender.com/'
+//   : 'https://dev-rifaaq-backend.onrender.com'
 
 export const service = axios.create({
   baseURL,
