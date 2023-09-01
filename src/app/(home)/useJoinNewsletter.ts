@@ -2,7 +2,7 @@
 
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-hot-toast'
-import { joinWaitlist } from '../service'
+import { joinNewsletter } from '../service'
 import { useRef } from 'react'
 
 const useJoinWaitList = () => {
@@ -40,7 +40,7 @@ const useJoinWaitList = () => {
   return useMutation({
     mutationKey: ['join'],
     onMutate,
-    mutationFn: joinWaitlist,
+    mutationFn: joinNewsletter,
     onSettled,
     onSuccess,
     onError,
