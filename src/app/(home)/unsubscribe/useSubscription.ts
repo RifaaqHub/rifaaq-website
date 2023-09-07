@@ -2,12 +2,12 @@ import { resubscribe, unsubscribe } from '@/app/service'
 import userServiceStateFn from '@/app/useServiceStatesFn'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
-export const useUnsubscribe = (data: IUnsubscribe) => {
+export const useUnsubscribe = (data: IUnsubscribe, enabled: boolean) => {
   const { email, type, name } = data
   return useQuery({
     queryKey: ['unsubscribe', data],
     queryFn: () => unsubscribe(data),
-    enabled: !!email && !!type && !!name,
+    enabled: !!email && !!type && !!name && !enabled,
   })
 }
 

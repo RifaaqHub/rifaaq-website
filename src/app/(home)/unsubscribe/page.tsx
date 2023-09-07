@@ -15,14 +15,18 @@ const Unsubscribe = () => {
   let name = params.get('name')!,
     email = params.get('email')!,
     type = params.get('type')!,
-    token = params.get('token')!
+    token = params.get('token')!,
+    resolved = params.get('resubscribed')!
 
-  const { isLoading: unsubscribing, isSuccess } = useUnsubscribe({
-    name,
-    email,
-    token,
-    type,
-  })
+  const { isLoading: unsubscribing, isSuccess } = useUnsubscribe(
+    {
+      name,
+      email,
+      token,
+      type,
+    },
+    !!resolved,
+  )
   const { mutate, isLoading } = useResubscribe()
 
   const resubscribe = () => {
@@ -31,17 +35,17 @@ const Unsubscribe = () => {
       mutate(data, {
         onSuccess: () => {
           setResubscribed(true)
-          router.replace('/unsubscribe')
+          router.replace('/unsubscribe?resubscribed=true')
         },
       })
     }
   }
 
-  let invalidParams = !email || !name || !type
+  let invalidParams = (!email || !name || !type) && !resolved
 
   return (
     <main tw="flex flex-col gap-8 py-[5rem] items-center w-full min-h-screen h-full ">
-      {resubscribed ? (
+      {resubscribed || resolved ? (
         <>
           <Heading>Resubscribed</Heading>
           <div tw="flex flex-col items-center gap-4">

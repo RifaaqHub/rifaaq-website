@@ -11,5 +11,5 @@
 
 ```js
 import HomeLayoutProvider from '@/components/HomeLayoutWrapper' //works for client-side declared wrapper
-import { HomeLayoutProvider } from '@/components' // throws the context not available on server error
+import { HomeLayoutProvider } from '@/components' // throws the context not available on server error ..
 ```
