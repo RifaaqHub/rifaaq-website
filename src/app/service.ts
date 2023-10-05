@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = 'https://dev-rifaaq-backend.onrender.com'
+const baseURL = 'https://dev-rifaaq-backend-19qa.onrender.com'
 // process.env.NODE_ENV === 'production'
 //   ? 'https://rifaaq-backend-c6p3.onrender.com/'
 //   : 'https://dev-rifaaq-backend.onrender.com'
