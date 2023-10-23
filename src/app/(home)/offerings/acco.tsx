@@ -73,10 +73,8 @@ const AccoRifaaq = () => {
 const available = [
   'Creating weekly tasks with simple starter templates',
   'Providing periodic progress analytics',
+  'Accountability partnerships in circles',
 ]
-const upcoming = [
-  'Accountability partnerships',
-  'A tailored AI companion rooted in Islamic knowledge',
-]
+const upcoming = ['A tailored AI companion rooted in Islamic knowledge']
 
 export default AccoRifaaq
