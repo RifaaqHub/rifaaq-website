@@ -59,9 +59,9 @@ const AccoRifaaq = () => {
               tw="max-w-[17.185rem] text-center"
               as={Link}
               target="_blank"
-              href={'https://acco.rifaaq.com'}
+              href={'https://acco-app.rifaaq.com'}
             >
-              Learn more
+              Get Started Now
             </Button>
           </div>
         </div>
