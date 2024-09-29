@@ -15,10 +15,10 @@ if (true) redirect('https://acco.rifaaq.com')
 
   return (
     <>
-      {*<Hero />
+      {/*<Hero />
       <About />
       <Offerings />
-      <NewsLetterForm />*} 
+      <NewsLetterForm />*/} 
     </>
   )
 }
