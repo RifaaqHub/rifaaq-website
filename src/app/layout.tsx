@@ -3,8 +3,7 @@ import GlobalStyles from '@/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
 import '@/styles/globals.css'
 
-import { Roboto } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Roboto, Cabin } from 'next/font/google'
 import AppProviders from './providers'
 
 const roboto = Roboto({
@@ -14,14 +13,10 @@ const roboto = Roboto({
   variable: '--font-roboto',
 })
 
-const calm = localFont({
-  src: [
-    {
-      path: '../styles/KeepCalm-Medium.ttf',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
+const calm = Cabin({
+  weight: ['500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
   variable: '--font-calm',
   fallback: ['system-ui', 'sans-serif', 'arial'],
 })
