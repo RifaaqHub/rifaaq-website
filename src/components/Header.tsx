@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { DiscoverOfferingsButton } from './Button'
 import Logo from './Logo'
 import Maxwidth from './Maxwidth'
 import tw from 'twin.macro'
@@ -29,8 +28,6 @@ const Header = () => {
       <Maxwidth tw="flex items-center bg-white py-2 px-6 justify-between md:(justify-between) lg:(px-[6.25rem])">
         <Logo />
 
-        <DiscoverOfferingsButton short tw="py-3 px-4 sm:(hidden)" />
-        <DiscoverOfferingsButton tw="hidden sm:(block)" />
       </Maxwidth>
     </header>
   )

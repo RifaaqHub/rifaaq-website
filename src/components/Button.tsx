@@ -28,14 +28,4 @@ const Button = styled.button<ButtonProps>(({ $variant, $isSmall, $shadow }) => [
   // `,
 ])
 
-export const DiscoverOfferingsButton = ({
-  shadow,
-  short,
-  ...props
-}: { shadow?: boolean; short?: boolean } & ComponentPropsWithoutRef<'a'>) => (
-  <Button as={'a'} href="/#offerings" $shadow={shadow} {...props}>
-    {short ? 'Discover' : 'Get Our Latest Offers'}
-  </Button>
-)
-
 export default Button

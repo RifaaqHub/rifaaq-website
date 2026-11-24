@@ -9,12 +9,6 @@ export const service = axios.create({
   baseURL,
 })
 
-export const joinNewsletter = async (data: waitListInput) => {
-  const response = await service.post('/api/v1/users/newsletter', data)
-
-  return response.data
-}
-
 export const unsubscribe = async (data: IUnsubscribe) => {
   const { email, name, type, token } = data
   const url = token

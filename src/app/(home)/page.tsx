@@ -1,19 +1,9 @@
-'use client'
+import { Heading } from '@/components'
 
-import Hero from './hero'
-import About from './about'
-import Offerings from './offerings'
-import NewsLetterForm from './newsletterForm'
-
-const Home = () => {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Offerings />
-      <NewsLetterForm />
-    </>
-  )
-}
+const Home = () => (
+  <div tw="px-6 py-24 text-center">
+    <Heading>Rifaaq</Heading>
+  </div>
+)
 
 export default Home
