@@ -1,100 +1,23 @@
-'use client'
+import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import { Maxwidth } from '@/components'
+import UnsubscribeStatus from './UnsubscribeStatus'
 
-import { Button, ButtonLink, Heading, Paragraph } from '@/components'
-import { useSearchParams, useRouter } from 'next/navigation'
-import { useResubscribe, useUnsubscribe } from './useSubscription'
-import { Suspense, useState } from 'react'
-import LoadingSvg from '@/components/LoadingSVG'
-
-const Unsubscribe = () => {
-  const params = useSearchParams()
-  const router = useRouter()
-  const [resubscribed, setResubscribed] = useState(false)
-
-  let name = params.get('name')!,
-    email = params.get('email')!,
-    type = params.get('type')!,
-    token = params.get('token')!,
-    resolved = params.get('resubscribed')!
-
-  const { isLoading: unsubscribing, isSuccess } = useUnsubscribe(
-    {
-      name,
-      email,
-      token,
-      type,
-    },
-    !!resolved,
-  )
-  const { mutate, isPending: isLoading } = useResubscribe()
-
-  const resubscribe = () => {
-    const data = { name, email, type, token }
-    if (name && email) {
-      mutate(data, {
-        onSuccess: () => {
-          setResubscribed(true)
-          router.replace('/unsubscribe?resubscribed=true')
-        },
-      })
-    }
-  }
-
-  let invalidParams = (!email || !name || !type) && !resolved
-
-  return (
-    <div className="flex min-h-[60vh] w-full flex-col items-center gap-8 px-6 py-20 text-center">
-      {resubscribed || resolved ? (
-        <>
-          <Heading>Resubscribed</Heading>
-          <div className="flex flex-col items-center gap-4">
-            <ButtonLink href="/">
-              Go to Home Page
-            </ButtonLink>
-          </div>
-        </>
-      ) : invalidParams ? (
-        <>
-          <Heading>Something missing</Heading>
-          <div className="flex flex-col items-center gap-4">
-            <ButtonLink href="/">
-              Go to Home Page
-            </ButtonLink>
-          </div>
-        </>
-      ) : (
-        <>
-          {unsubscribing ? (
-            <>
-              <Heading>Unsubscribing...</Heading>
-              <LoadingSvg />
-            </>
-          ) : (
-            <>
-              <Heading>Unsubscribed</Heading>
-            </>
-          )}
-
-          {isSuccess ? (
-            <div className="flex flex-col items-center gap-4">
-              <Paragraph>
-                If you unsubscribed by mistake, you can resubscribe back
-              </Paragraph>
-              <Button onClick={resubscribe} disabled={isLoading}>
-                Resubscribe
-              </Button>
-            </div>
-          ) : null}
-        </>
-      )}
-    </div>
-  )
+export const metadata: Metadata = {
+  title: 'Unsubscribe',
+  robots: { index: false },
 }
 
 const UnsubscribePage = () => (
-  <Suspense fallback={null}>
-    <Unsubscribe />
-  </Suspense>
+  <section className="flex min-h-[70vh] items-center bg-light-gray py-16 lg:py-24">
+    <Maxwidth className="max-w-[40rem]">
+      <div className="rounded-[28px] bg-white p-8 text-center shadow-[0_10px_30px_rgba(26,42,85,0.06)] sm:p-12">
+        <Suspense fallback={null}>
+          <UnsubscribeStatus />
+        </Suspense>
+      </div>
+    </Maxwidth>
+  </section>
 )
 
 export default UnsubscribePage

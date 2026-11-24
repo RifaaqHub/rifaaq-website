@@ -1,15 +1,31 @@
-## Rifaaq Landing Page
+# Rifaaq website
 
-### Technologies
+Marketing site for the Rifaaq Android app (rifaaq.com): landing page, About,
+Support, and the Google Play-required Privacy Policy and Account deletion pages.
 
-- Next.js
-- Tailwind CSS
-- Twin.macro
-- Typescript
+Stack: Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS v4.
+Brand tokens in `src/styles/globals.css` mirror the mobile app
+(`mobile/tailwind.config.js`); logos in `public/brand` are copied verbatim
+from `mobile/assets/brand`.
 
-### Notes
+## Run
 
-```js
-import HomeLayoutProvider from '@/components/HomeLayoutWrapper' //works for client-side declared wrapper
-import { HomeLayoutProvider } from '@/components' // throws the context not available on server error ..
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build && npm start
 ```
+
+## Configuration
+
+| Variable | Default | Used for |
+| --- | --- | --- |
+| `NEXT_PUBLIC_API_BASE_URL` | `https://api.rifaaq.com` | Web account deletion form (`POST /account-deletion-requests`) |
+
+Placeholders that must be filled before launch (contact email, legal entity,
+registered address, governing law) live in `src/lib/site.ts`.
+
+## Routes
+
+`/`, `/about`, `/support`, `/privacy`, `/terms`, `/account-deletion`, and the
+legacy `/unsubscribe` (linked from previously sent newsletter emails).

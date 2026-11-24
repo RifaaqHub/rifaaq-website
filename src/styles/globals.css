@@ -39,6 +39,10 @@ body {
   -webkit-tap-highlight-color: rgb(255 207 63 / 0.3);
 }
 
+[lang='ar'] {
+  font-family: var(--font-arabic), serif;
+}
+
 ::selection {
   @apply bg-secondary text-primary;
 }
