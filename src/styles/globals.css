@@ -1,31 +1,56 @@
+@import 'tailwindcss';
+
+/* Brand tokens mirror the mobile app, the brand source of truth:
+   mobile/tailwind.config.js, constants/theme.ts and constants/themeVars.ts
+   (light theme). Cabin is the app's only typeface. */
+@theme {
+  --color-primary: #1a2a55;
+  --color-secondary: #ffcf3f;
+  --color-royal: #2a499d;
+  --color-electric: #db00ff;
+  --color-ribbon: #0047ff;
+  --color-custom-blue: #618bfc;
+  --color-custom-orange: #c1352b;
+  --color-custom-green: #15b759;
+  --color-light-blue: #e7edff;
+  --color-light-gray: #eff2fa;
+  --color-deep-gray: #434650;
+  --color-disabled-bg: #e9eaec;
+  --color-disabled-text: #909296;
+  --color-ring-track: #b1c5f9;
+  --color-missed-border: #cf9393;
+  --color-surface: #f2f4fa;
+  --color-line: #565656;
+  --color-text-muted: #9b9da5;
+  --color-text-subtle: #797b80;
+
+  --font-sans: var(--font-brand), system-ui, sans-serif;
+
+  --container-site: 75rem;
+}
+
 html {
   scroll-behavior: smooth;
-  color: #4a4d56;
+  scroll-padding-top: 5rem;
 }
 
-*::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+body {
+  @apply bg-white font-sans text-primary antialiased;
+  -webkit-tap-highlight-color: rgb(255 207 63 / 0.3);
 }
 
-.hide-scrollbar::-webkit-scrollbar,
-.hide-scrollbar::-webkit-scrollbar-thumb {
-  width: 0;
-  height: 0;
+::selection {
+  @apply bg-secondary text-primary;
 }
 
-*::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #1a2a55;
-  border-radius: 5px;
-}
-
-@media screen and (min-width: 991px) {
-  *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,70 +1,27 @@
 import type { Metadata } from 'next'
-import GlobalStyles from '@/styles/GlobalStyles'
-import StyledComponentsRegistry from '@/lib/registry'
+import { Cabin } from 'next/font/google'
+import AppProviders from './providers'
 import '@/styles/globals.css'
 
-import { Roboto, Cabin } from 'next/font/google'
-import AppProviders from './providers'
-
-const roboto = Roboto({
+const cabin = Cabin({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-roboto',
-})
-
-const calm = Cabin({
-  weight: ['500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-calm',
-  fallback: ['system-ui', 'sans-serif', 'arial'],
+  variable: '--font-brand',
 })
 
 export const metadata: Metadata = {
-  title: 'Rifaaq Home',
+  title: 'Rifaaq',
   description:
-    'We aspire to be the ultimate partner in personal and professional growth, driving positive change and creating a brighter future for all.',
+    'Your partner in spiritual and all-round growth.',
   metadataBase: new URL('https://rifaaq.com'),
-  keywords: [
-    'productivity',
-    'growth',
-    'partnership',
-    'personal development',
-    'business development',
-    'support',
-  ],
-  category: 'technology, personal development, growth, business development',
-  openGraph: {
-    title: 'Rifaaq',
-    description:
-      'the ultimate partner in personal and professional growth, driving positive change and creating a brighter future for all.',
-    url: 'https://rifaaq.com',
-    siteName: 'Rifaaq',
-    type: 'website',
-    images: [
-      {
-        url: '/fav.png',
-        width: 768,
-        height: 768,
-        alt: 'rifaaq-icon',
-      },
-    ],
-  },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${calm.variable}`}>
+    <html lang="en" className={cabin.variable}>
       <body>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          <AppProviders>{children}</AppProviders>
-        </StyledComponentsRegistry>
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   )

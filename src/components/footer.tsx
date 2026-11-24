@@ -1,52 +1,32 @@
-import { Logo, Maxwidth, Paragraph } from '@/components'
-import { routes } from '@/lib/routes'
 import Link from 'next/link'
 import { FaFacebook, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
-
-const Footer = () => {
-  return (
-    <footer tw="bg-primary text-white border-b-2 border-b-secondary">
-      <Maxwidth tw="flex flex-col gap-[3.38rem] px-6 py-16 items-center lg:(flex-row justify-between items-center px-[6.25rem])">
-        <Logo $lightBg={false} />
-
-        <div tw="p-4 flex flex-row gap-8">
-          {socials.map(social => {
-            const Icon = social.icon
-            return (
-              <Link
-                href={social.link}
-                target="_blank"
-                key={social.title}
-                title={social.title}
-              >
-                <Icon size={35} />
-              </Link>
-            )
-          })}
-        </div>
-
-        <Paragraph>&copy; Copyright 2023</Paragraph>
-      </Maxwidth>
-    </footer>
-  )
-}
+import { routes } from '@/lib/routes'
+import Logo from './Logo'
+import Maxwidth from './Maxwidth'
+import Paragraph from './Paragraph'
 
 const socials = [
-  {
-    title: 'twitter',
-    icon: FaTwitter,
-    link: routes.twitter.path,
-  },
-  {
-    title: 'facebook',
-    icon: FaFacebook,
-    link: routes.facebook.path,
-  },
-  {
-    title: 'linkedin',
-    icon: FaLinkedinIn,
-    link: routes.linkedIn.path,
-  },
+  { title: 'twitter', icon: FaTwitter, link: routes.twitter.path },
+  { title: 'facebook', icon: FaFacebook, link: routes.facebook.path },
+  { title: 'linkedin', icon: FaLinkedinIn, link: routes.linkedIn.path },
 ]
+
+const Footer = () => (
+  <footer className="border-b-2 border-b-secondary bg-primary text-white">
+    <Maxwidth className="flex flex-col items-center gap-[3.38rem] py-16 lg:flex-row lg:justify-between">
+      <Logo lightBg={false} />
+
+      <div className="flex flex-row gap-8 p-4">
+        {socials.map(({ title, icon: Icon, link }) => (
+          <Link href={link} target="_blank" key={title} title={title}>
+            <Icon size={35} />
+          </Link>
+        ))}
+      </div>
+
+      <Paragraph>&copy; Copyright 2023</Paragraph>
+    </Maxwidth>
+  </footer>
+)
 
 export default Footer

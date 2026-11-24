@@ -1,30 +1,15 @@
-'use client'
-import { Button, Heading, HomeLayoutProvider } from '@/components'
-import AppProviders from './providers'
-import StyledComponentsRegistry from '@/lib/registry'
-import GlobalStyles from '@/styles/GlobalStyles'
+import { ButtonLink, Heading, HomeLayoutProvider, Paragraph } from '@/components'
 
-const NotFound = () => {
-  return (
-    <StyledComponentsRegistry>
-      <GlobalStyles />
-      <AppProviders>
-        <HomeLayoutProvider>
-          <div tw="flex flex-col gap-6 text-center px-8 py-16 items-center md:(max-w-[70%] mx-auto) lg:(py-[9rem] max-w-[50%] gap-8)">
-            <Heading>404</Heading>
-            <Heading $variant="h3" as="p">
-              The page you're looking for is not available, or probably under
-              construction
-            </Heading>
-
-            <Button as={'a'} href="/">
-              Go Back Home
-            </Button>
-          </div>
-        </HomeLayoutProvider>
-      </AppProviders>
-    </StyledComponentsRegistry>
-  )
-}
+const NotFound = () => (
+  <HomeLayoutProvider>
+    <div className="mx-auto flex max-w-[36rem] flex-col items-center gap-6 px-6 py-20 text-center lg:py-32">
+      <Heading>Page not found</Heading>
+      <Paragraph className="text-deep-gray">
+        The page you&apos;re looking for doesn&apos;t exist or has moved.
+      </Paragraph>
+      <ButtonLink href="/">Back to home</ButtonLink>
+    </div>
+  </HomeLayoutProvider>
+)
 
 export default NotFound

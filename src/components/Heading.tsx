@@ -1,18 +1,27 @@
-import tw, { TwStyle, styled } from 'twin.macro'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
+import { cn } from '@/lib/cn'
 
-type HeadingVariant = 'h1' | 'h2' | 'h3'
+type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4'
 
-interface HeadingProps {
-  $variant?: HeadingVariant
+const variants: Record<HeadingVariant, string> = {
+  h1: 'text-[2.25rem] leading-[2.6rem] sm:text-[3rem] sm:leading-[3.4rem] lg:text-[3.75rem] lg:leading-[4.1rem]',
+  h2: 'text-[1.875rem] leading-[2.3rem] md:text-[2.5rem] md:leading-[2.9rem]',
+  h3: 'text-[1.5rem] leading-[2rem] md:text-[1.75rem] md:leading-[2.3rem]',
+  h4: 'text-[1.2rem] leading-[1.6rem] md:text-[1.35rem] md:leading-[1.8rem]',
 }
 
-const headingVariants: Record<HeadingVariant, TwStyle> = {
-  h1: tw`text-[2.5rem] leading-[3.25rem] md:(text-[3.4rem] leading-[4rem]) lg:(text-[4.5rem] leading-[5rem]) xl:(text-[5.5rem] leading-[6.6rem])`,
-  h2: tw`text-[2.5rem] leading-[3.25rem] md:(text-[3rem] leading-[3.5rem]) lg:(text-[3.5rem] leading-[4rem]) xl:(text-[4rem] leading-[5rem])`,
-  h3: tw`text-[1.75rem] leading-[2.275rem] md:(text-[1.85rem] leading-[2.4rem]) lg:(text-[2rem] leading-[2.75rem]) xl:(text-[2.25rem] leading-[2.925rem])`,
+type HeadingProps = ComponentPropsWithoutRef<'h1'> & {
+  as?: ElementType
+  variant?: HeadingVariant
 }
 
-export const Heading = styled.h1<HeadingProps>(({ $variant = 'h1' }) => [
-  headingVariants[$variant],
-  tw`font-calm font-medium`,
-])
+export const Heading = ({ as, variant = 'h1', className, ...props }: HeadingProps) => {
+  const Tag = as ?? variant
+  return (
+    <Tag className={cn('font-bold tracking-[-0.01em]', variants[variant], className)} {...props} />
+  )
+}
+
+export const Accent = ({ className, ...props }: ComponentPropsWithoutRef<'em'>) => (
+  <em className={cn('not-italic text-secondary', className)} {...props} />
+)

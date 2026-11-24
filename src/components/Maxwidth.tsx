@@ -1,5 +1,8 @@
-import tw, { styled } from 'twin.macro'
+import { ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/lib/cn'
 
-const Maxwidth = styled.div(() => [tw`w-full max-w-[1440px] mx-auto`])
+const Maxwidth = ({ className, ...props }: ComponentPropsWithoutRef<'div'>) => (
+  <div className={cn('mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8', className)} {...props} />
+)
 
 export default Maxwidth

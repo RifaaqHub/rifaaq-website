@@ -1,31 +1,48 @@
+import Link from 'next/link'
 import { ComponentPropsWithoutRef } from 'react'
-import tw, { styled, css } from 'twin.macro'
+import { cn } from '@/lib/cn'
 
-interface ButtonProps {
-  $variant?: 'primary' | 'secondary'
-  $isSmall?: boolean
-  $shadow?: boolean
+type Variant = 'secondary' | 'primary' | 'outline' | 'ghost'
+type Size = 'md' | 'sm'
+
+const variants: Record<Variant, string> = {
+  secondary: 'bg-secondary text-primary hover:bg-[#ffd95f]',
+  primary: 'bg-primary text-white hover:bg-royal',
+  outline: 'border border-secondary bg-white text-primary hover:bg-light-gray',
+  ghost: 'bg-surface text-primary hover:bg-light-blue',
 }
 
-const Button = styled.button<ButtonProps>(({ $variant, $isSmall, $shadow }) => [
-  // The common button styles added with the tw import
-  tw`px-7 py-4 rounded-[1rem] bg-secondary text-primary font-bold text-sm transform duration-75 hocus:(scale-105) lg:(text-base px-8)`,
+const sizes: Record<Size, string> = {
+  md: 'px-6 py-3.5 text-base',
+  sm: 'px-4 py-2.5 text-sm',
+}
 
-  // Use props to conditionally style your components
-  $variant === 'primary' && tw`bg-primary text-white`,
+export const buttonClass = (variant: Variant = 'secondary', size: Size = 'md') =>
+  cn(
+    'inline-flex items-center justify-center gap-2 rounded-[14px] text-center font-bold transition duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-royal focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60',
+    sizes[size],
+    variants[variant],
+  )
 
-  $shadow &&
-    css`
-      box-shadow: 3px 5px 19px 0px rgba(255, 207, 63, 0.3);
-    `,
+type StyleProps = { variant?: Variant; size?: Size }
 
-  // Conditional props can be used
-  $isSmall && tw`text-sm`,
+const Button = ({
+  variant,
+  size,
+  className,
+  type = 'button',
+  ...props
+}: StyleProps & ComponentPropsWithoutRef<'button'>) => (
+  <button type={type} className={cn(buttonClass(variant, size), className)} {...props} />
+)
 
-  // // The theme import can supply values from your tailwind.config.js
-  // css`
-  //   color: ${theme`colors.white`};
-  // `,
-])
+export const ButtonLink = ({
+  variant,
+  size,
+  className,
+  ...props
+}: StyleProps & ComponentPropsWithoutRef<typeof Link>) => (
+  <Link className={cn(buttonClass(variant, size), className)} {...props} />
+)
 
 export default Button

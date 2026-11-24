@@ -1,10 +1,9 @@
 'use client'
 
-import { Button, Heading, Paragraph } from '@/components'
+import { Button, ButtonLink, Heading, Paragraph } from '@/components'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useResubscribe, useUnsubscribe } from './useSubscription'
 import { Suspense, useState } from 'react'
-import Link from 'next/link'
 import LoadingSvg from '@/components/LoadingSVG'
 
 const Unsubscribe = () => {
@@ -44,23 +43,23 @@ const Unsubscribe = () => {
   let invalidParams = (!email || !name || !type) && !resolved
 
   return (
-    <main tw="flex flex-col gap-8 py-[5rem] items-center w-full min-h-screen h-full ">
+    <div className="flex min-h-[60vh] w-full flex-col items-center gap-8 px-6 py-20 text-center">
       {resubscribed || resolved ? (
         <>
           <Heading>Resubscribed</Heading>
-          <div tw="flex flex-col items-center gap-4">
-            <Button tw="max-w-fit" as={Link} href={'/'}>
+          <div className="flex flex-col items-center gap-4">
+            <ButtonLink href="/">
               Go to Home Page
-            </Button>
+            </ButtonLink>
           </div>
         </>
       ) : invalidParams ? (
         <>
           <Heading>Something missing</Heading>
-          <div tw="flex flex-col items-center gap-4">
-            <Button tw="max-w-fit" as={Link} href={'/'}>
+          <div className="flex flex-col items-center gap-4">
+            <ButtonLink href="/">
               Go to Home Page
-            </Button>
+            </ButtonLink>
           </div>
         </>
       ) : (
@@ -77,7 +76,7 @@ const Unsubscribe = () => {
           )}
 
           {isSuccess ? (
-            <div tw="flex flex-col gap-4">
+            <div className="flex flex-col items-center gap-4">
               <Paragraph>
                 If you unsubscribed by mistake, you can resubscribe back
               </Paragraph>
@@ -88,7 +87,7 @@ const Unsubscribe = () => {
           ) : null}
         </>
       )}
-    </main>
+    </div>
   )
 }
 

@@ -1,33 +1,25 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { cn } from '@/lib/cn'
 import Logo from './Logo'
 import Maxwidth from './Maxwidth'
-import tw from 'twin.macro'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 0)
     window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
   return (
     <header
-      css={[
-        isScrolled &&
-          tw`bg-white sticky top-0 z-[100] border-b-2 border-secondary`,
-      ]}
+      className={cn(isScrolled && 'sticky top-0 z-[100] border-b-2 border-secondary bg-white')}
     >
-      <Maxwidth tw="flex items-center bg-white py-2 px-6 justify-between md:(justify-between) lg:(px-[6.25rem])">
+      <Maxwidth className="flex items-center justify-between bg-white py-2">
         <Logo />
-
       </Maxwidth>
     </header>
   )
