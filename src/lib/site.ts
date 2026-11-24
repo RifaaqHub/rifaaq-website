@@ -1,16 +1,11 @@
-// Values marked as placeholders must be filled in before launch.
+// Public business details shown on the legal and support pages.
 export const site = {
   name: 'Rifaaq',
   url: 'https://rifaaq.com',
-  playStoreUrl:
-    'https://play.google.com/store/apps/details?id=com.rifaaq.app',
-  /** Placeholder: public support/privacy contact address. */
-  contactEmail: '[contact email]',
-  /** Placeholder: the registered legal entity that operates Rifaaq. */
-  legalEntity: '[legal entity name]',
-  /** Placeholder: registered business address. */
-  address: '[registered address]',
-  /** Placeholder: governing-law jurisdiction for the Terms. */
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.rifaaq.app',
+  contactEmail: 'hello@rifaaq.com',
+  legalEntity: 'Rifaaq Ltd',
+  address: 'Kajola Area, ile ise awo, Abeokuta, Ogun State, Nigeria',
   jurisdiction: 'the Federal Republic of Nigeria',
   legalLastUpdated: '24 November 2026',
   /** How long manual web deletion requests may take to process. */
