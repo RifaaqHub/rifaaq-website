@@ -1,11 +1,11 @@
 'use client'
 import { Heading, Logo, Maxwidth } from '@/components'
 import useCountdown from '@/hooks/useCountdown'
-import { zonedTimeToUtc } from 'date-fns-tz'
+import { fromZonedTime } from 'date-fns-tz'
 
 const CountDown = () => {
   const targetTimeZone = 'Africa/Lagos' // WAT is Africa/Lagos time zone
-  const watDateTime = zonedTimeToUtc(
+  const watDateTime = fromZonedTime(
     new Date(2023, 7, 20, 17, 0, 0),
     targetTimeZone,
   )

@@ -6,7 +6,7 @@ import { joinNewsletter } from '../service'
 import { useRef } from 'react'
 
 const useJoinWaitList = () => {
-  const toastId = useRef<any>()
+  const toastId = useRef<any>(undefined)
 
   let dismiss = () => {
     if (toastId.current) toast.dismiss(toastId.current)

@@ -3,7 +3,7 @@
 import { Button, Heading, Paragraph } from '@/components'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useResubscribe, useUnsubscribe } from './useSubscription'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Link from 'next/link'
 import LoadingSvg from '@/components/LoadingSVG'
 
@@ -27,7 +27,7 @@ const Unsubscribe = () => {
     },
     !!resolved,
   )
-  const { mutate, isLoading } = useResubscribe()
+  const { mutate, isPending: isLoading } = useResubscribe()
 
   const resubscribe = () => {
     const data = { name, email, type, token }
@@ -92,4 +92,10 @@ const Unsubscribe = () => {
   )
 }
 
-export default Unsubscribe
+const UnsubscribePage = () => (
+  <Suspense fallback={null}>
+    <Unsubscribe />
+  </Suspense>
+)
+
+export default UnsubscribePage

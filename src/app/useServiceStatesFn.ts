@@ -13,7 +13,7 @@ const userServiceStateFn = ({
   error: errorMessage,
   loading,
 }: IStateMessages) => {
-  const toastId = useRef<any>()
+  const toastId = useRef<any>(undefined)
   const pathName = usePathname()
 
   let dismiss = () => {

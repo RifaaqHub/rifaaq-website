@@ -18,7 +18,7 @@ const NewsLetterForm = () => {
     },
   })
 
-  const { mutate: join, isLoading } = useJoinWaitList()
+  const { mutate: join, isPending: isLoading } = useJoinWaitList()
 
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
