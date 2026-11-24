@@ -7,18 +7,16 @@
 //import NewsLetterForm from './newsletterForm'
 
 import { redirect } from 'next/navigation'
- 
-
 
 const Home = () => {
-if (true) redirect('https://acco.rifaaq.com')
+  // if (true) redirect('https://acco.rifaaq.com')
 
   return (
     <>
-      {/*<Hero />
+      <Hero />
       <About />
       <Offerings />
-      <NewsLetterForm />*/} 
+      <NewsLetterForm />
     </>
   )
 }
